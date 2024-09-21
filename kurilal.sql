@@ -31,7 +31,7 @@ CONSTRAINT `pk_key_delivery_address` PRIMARY KEY(`address_id`)
 CREATE TABLE `track_shipments`(
 `tracking_id` INTEGER NOT NULL,
 `order_placed` BOOLEAN DEFAULT 0 NOT NULL,
-`displaced`BOOLEAN DEFAULT 0 NOT NULL,
+`dispatched`BOOLEAN DEFAULT 0 NOT NULL,
 `shipped` BOOLEAN DEFAULT 0 NOT NULL,
 `out_for_delivery` BOOLEAN DEFAULT 0 NOT NULL,
 `delivered` BOOLEAN DEFAULT 0 NOT NULL,
