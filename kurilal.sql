@@ -16,8 +16,9 @@ CREATE TABLE `order`(
 `order_id` INTEGER NOT NULL,
 `delivery_method` BOOLEAN,
 `quantity` INTEGER NOT NULL CHECK(`quantity` > 0),
-`address_id` INTEGER NOT NULL,
+`address_id` INTEGER,
 `payment_id` INTEGER NOT NULL,
+`customer_id` INTEGER NOT NULL,
 CONSTRAINT `pk_key_order` PRIMARY KEY(`order_id`)
 )ENGINE = 'Innodb' AUTO_INCREMENT = 1, DEFAULT CHARSET 'latin1';
 
@@ -34,7 +35,7 @@ CREATE TABLE `track_shipments`(
 `shipped` BOOLEAN DEFAULT 0 NOT NULL,
 `out_for_delivery` BOOLEAN DEFAULT 0 NOT NULL,
 `delivered` BOOLEAN DEFAULT 0 NOT NULL,
-`order_id` BOOLEAN DEFAULT 0 NOT NULL,
+`order_id` INTEGER NOT NULL,
 CONSTRAINT `pk_key_order` PRIMARY KEY(`order_id`)
 )ENGINE = 'Innodb' AUTO_INCREMENT = 1, DEFAULT CHARSET 'latin1';
 
@@ -59,7 +60,8 @@ CONSTRAINT `pk_key_orders_products_product_id` PRIMARY KEY(`product_id`,`order_i
 -- BLUE
 CREATE TABLE `products`(
 `product_id` INTEGER NOT NULL,
-`product_name` VARCHAR(65) NOT NULL
+`product_name` VARCHAR(65) NOT NULL,
+CONSTRAINT `pk_key_products_product_id` PRIMARY KEY(`product_id`)
 )ENGINE = 'Innodb' AUTO_INCREMENT = 1, DEFAULT CHARSET 'latin1';
 
 CREATE TABLE `category`(
@@ -89,6 +91,29 @@ CREATE TABLE `product_images`(
 CONSTRAINT `pk_key_product_images` PRIMARY KEY(`image_id`)
 )ENGINE = 'Innodb' AUTO_INCREMENT = 1, DEFAULT CHARSET 'latin1';
 
+
+
+
+
+-- ORDERS
+ALTER TABLE `order` ADD CONSTRAINT `order_fk_to_customer` FOREIGN KEY(`customer_id`) REFERENCES `customer`(`customer_id`);
+ALTER TABLE `order` ADD CONSTRAINT `order_fk_to_payment` FOREIGN KEY(`payment_id`) REFERENCES `payment`(`payment_id`);
+ALTER TABLE `order` ADD CONSTRAINT `order_fk_to_delivery_address` FOREIGN KEY(`address_id`) REFERENCES `delivery_address`(`address_id`);
+
+-- track_shipments
+ALTER TABLE `track_shipments` ADD CONSTRAINT `track_shipments_fk_order` FOREIGN KEY(`order_id`) REFERENCES `order`(`order_id`);
+
+
+ALTER TABLE `orders_products` ADD CONSTRAINT `orders_products_fk_products` FOREIGN KEY(`product_id`) REFERENCES `products`(`product_id`);
+ALTER TABLE `orders_products` ADD CONSTRAINT `orders_products_fk_order` FOREIGN KEY(`order_id`) REFERENCES `order`(`order_id`);
+
+
+ALTER TABLE `category` ADD CONSTRAINT `category_fk_products` FOREIGN KEY(`product_id`) REFERENCES `products`(`product_id`);
+
+ALTER TABLE `product_images` ADD CONSTRAINT `product_images_fk_products` FOREIGN KEY(`product_id`) REFERENCES `products`(`product_id`);
+
+ALTER TABLE `products_supplier` ADD CONSTRAINT `products_supplier_fk_products` FOREIGN KEY(`product_id`) REFERENCES `products`(`product_id`);
+ALTER TABLE `products_supplier` ADD CONSTRAINT `products_supplier_fk_supplier` FOREIGN KEY(`product_id`) REFERENCES `supplier`(`supplier_id`);
 
 
 
