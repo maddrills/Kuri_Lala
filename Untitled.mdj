@@ -306,6 +306,22 @@
 											"top": 400,
 											"width": 219.3544921875,
 											"height": 13
+										},
+										{
+											"_type": "ERDColumnView",
+											"_id": "AAAAAAGSFa08pKnqSlA=",
+											"_parent": {
+												"$ref": "AAAAAAGSExG2ICjM0bA="
+											},
+											"model": {
+												"$ref": "AAAAAAGSFa08eKnnCyM="
+											},
+											"fillColor": "#ffffd8",
+											"font": "Arial;13;0",
+											"left": 341,
+											"top": 415,
+											"width": 219.3544921875,
+											"height": 13
 										}
 									],
 									"fillColor": "#ffffd8",
@@ -313,7 +329,7 @@
 									"left": 336,
 									"top": 335,
 									"width": 229.3544921875,
-									"height": 83
+									"height": 98
 								}
 							],
 							"fillColor": "#ffffd8",
@@ -490,7 +506,7 @@
 									"top": 589,
 									"width": 203.849609375,
 									"height": 13,
-									"text": "supplier "
+									"text": "supplier"
 								},
 								{
 									"_type": "ERDColumnCompartmentView",
@@ -860,6 +876,22 @@
 											"top": 648,
 											"width": 220.5732421875,
 											"height": 13
+										},
+										{
+											"_type": "ERDColumnView",
+											"_id": "AAAAAAGSFah0Gqni/gU=",
+											"_parent": {
+												"$ref": "AAAAAAGSEysFOykmH7o="
+											},
+											"model": {
+												"$ref": "AAAAAAGSFahz7qnfwv8="
+											},
+											"fillColor": "#ffffd8",
+											"font": "Arial;13;0",
+											"left": 693,
+											"top": 648,
+											"width": 220.5732421875,
+											"height": 13
 										}
 									],
 									"fillColor": "#ffffd8",
@@ -867,7 +899,7 @@
 									"left": 688,
 									"top": 583,
 									"width": 230.5732421875,
-									"height": 68
+									"height": 83
 								}
 							],
 							"fillColor": "#ffffd8",
@@ -875,7 +907,7 @@
 							"left": 688,
 							"top": 560,
 							"width": 230.5732421875,
-							"height": 97,
+							"height": 106,
 							"nameLabel": {
 								"$ref": "AAAAAAGSEysFOyklNSQ="
 							},
@@ -986,7 +1018,7 @@
 									"top": 117,
 									"width": 203.85595703125,
 									"height": 13,
-									"text": "delivery _address"
+									"text": "delivery_address"
 								},
 								{
 									"_type": "ERDColumnCompartmentView",
@@ -1593,6 +1625,22 @@
 											"top": 415,
 											"width": 196.96630859375,
 											"height": 13
+										},
+										{
+											"_type": "ERDColumnView",
+											"_id": "AAAAAAGSFZZvUqnYjCU=",
+											"_parent": {
+												"$ref": "AAAAAAGSE9Rdxitgg8c="
+											},
+											"model": {
+												"$ref": "AAAAAAGSFZZvQ6nV2Bk="
+											},
+											"fillColor": "#ffffd8",
+											"font": "Arial;13;0",
+											"left": 693,
+											"top": 430,
+											"width": 196.96630859375,
+											"height": 13
 										}
 									],
 									"fillColor": "#ffffd8",
@@ -1600,7 +1648,7 @@
 									"left": 688,
 									"top": 335,
 									"width": 206.96630859375,
-									"height": 98
+									"height": 113
 								}
 							],
 							"fillColor": "#ffffd8",
@@ -2509,6 +2557,17 @@
 							"type": "INTEGER",
 							"length": 0,
 							"foreignKey": true
+						},
+						{
+							"_type": "ERDColumn",
+							"_id": "AAAAAAGSFa08eKnnCyM=",
+							"_parent": {
+								"$ref": "AAAAAAGSExG2HyjINfA="
+							},
+							"name": "customer_id",
+							"type": "INTEGER",
+							"length": 0,
+							"foreignKey": true
 						}
 					]
 				},
@@ -2687,7 +2746,7 @@
 					"_parent": {
 						"$ref": "AAAAAAGSExCAGii279k="
 					},
-					"name": "supplier ",
+					"name": "supplier",
 					"ownedElements": [
 						{
 							"_type": "ERDRelationship",
@@ -2928,6 +2987,16 @@
 								"$ref": "AAAAAAGSEysFOikiHg8="
 							},
 							"name": "Column5"
+						},
+						{
+							"_type": "ERDColumn",
+							"_id": "AAAAAAGSFahz7qnfwv8=",
+							"_parent": {
+								"$ref": "AAAAAAGSEysFOikiHg8="
+							},
+							"name": "amount",
+							"type": "INTEGER",
+							"length": 0
 						}
 					]
 				},
@@ -2937,7 +3006,7 @@
 					"_parent": {
 						"$ref": "AAAAAAGSExCAGii279k="
 					},
-					"name": "delivery _address",
+					"name": "delivery_address",
 					"columns": [
 						{
 							"_type": "ERDColumn",
@@ -3065,6 +3134,17 @@
 							"name": "delivered",
 							"type": "BOOLEAN",
 							"length": 0
+						},
+						{
+							"_type": "ERDColumn",
+							"_id": "AAAAAAGSFZZvQ6nV2Bk=",
+							"_parent": {
+								"$ref": "AAAAAAGSE9RdxStce9w="
+							},
+							"name": "order_id",
+							"type": "INTEGER",
+							"length": 0,
+							"foreignKey": true
 						}
 					]
 				},

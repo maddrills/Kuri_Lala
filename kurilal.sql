@@ -66,8 +66,7 @@ CONSTRAINT `pk_key_products_product_id` PRIMARY KEY(`product_id`)
 
 CREATE TABLE `category`(
 `product_id` INTEGER AUTO_INCREMENT NOT NULL,
-`order_id` VARCHAR(65) NOT NULL,
-`phone_number` CHAR(10)  CHECK (length(`phone_number`)= 10),
+`product_name` VARCHAR(65) NOT NULL,
 CONSTRAINT `pk_key_customar` PRIMARY KEY(`product_id`)
 )ENGINE = 'Innodb' AUTO_INCREMENT = 1, DEFAULT CHARSET 'latin1';
 
