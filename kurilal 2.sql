@@ -43,8 +43,10 @@ INSERT INTO `supplier`(`supplier_name`) VALUES ('ATNT');
 INSERT INTO `supplier`(`supplier_name`) VALUES ("mcdonald's");
 INSERT INTO `supplier`(`supplier_name`) VALUES ('ASUS');
 
+DELETE FROM `products`;
+DELETE FROM `supplier`;
 INSERT INTO `products_supplier`(`product_id`,`supplier_id`) VALUES (1,4);
-INSERT INTO `products_supplier`(`product_id`,`supplier_id`) VALUES (2,3);
+INSERT INTO `products_supplier`(`product_id`,`supplier_id`) VALUES (4,3);
 INSERT INTO `products_supplier`(`product_id`,`supplier_id`) VALUES (2,2);
 INSERT INTO `products_supplier`(`product_id`,`supplier_id`) VALUES (2,1);
 
@@ -61,7 +63,8 @@ WHERE `c`.`customer_id` = 2;
 -- Find all supplier details for a specific product (e.g., ProductId = 10):
 SELECT * FROM `supplier` AS `su`
 LEFT JOIN `products_supplier` AS `ps`ON `ps`.`supplier_id` = `su`.`supplier_id`
-LEFT JOIN `products` AS `p`ON `p`.`product_id` = `ps`.`product_id`;
+LEFT JOIN `products` AS `p`ON `p`.`product_id` = `ps`.`product_id`
+WHERE `p`.`product_name` = 'Phone';
 
 
 
